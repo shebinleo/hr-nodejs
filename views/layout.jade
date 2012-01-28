@@ -1,0 +1,30 @@
+!!! 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/chunkfive-fontface.css')
+  body
+    div#header
+      div#headerNav
+        div#siteTitle Site Title
+        ul
+          li 
+            a(href="/") Home
+          li 
+            a(href="/about") My Account
+          li 
+            a(href="/aboutus") About Us
+          li 
+            a(href="/contactus") Contact Us
+    div#wrapper!= body
+        div#footer 
+          ul#footerNav
+            li
+              a(href="/") Home
+            li
+              a(href="/about") My Account
+            li
+              a(href="/aboutus") About Us
+            li
+              a(href="/contactus") Contact Us
