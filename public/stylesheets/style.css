@@ -287,3 +287,8 @@ acronym {
     line-height: 0;
     visibility: hidden;
 }
+
+/* Other css
+-----------------------------------------------------------------------------*/
+p { text-align: justify; }
+.login label { float:left; width:70px; }
