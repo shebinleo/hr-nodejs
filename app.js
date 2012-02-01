@@ -6,7 +6,6 @@ require('./lib/exceptions');
 
 var express = require('express')
   , mongoose = require('mongoose')
-  , constants = require('./constants')
   , models = require('./models')
   , config = require('./config/config')
   , routes = require('./routes')

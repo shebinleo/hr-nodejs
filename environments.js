@@ -1,4 +1,11 @@
 /**
+ * Load dependencies.
+ */
+
+var express = require('express');
+
+
+/**
  * Exports
  */
 
@@ -12,7 +19,7 @@ module.exports = function(app){
       .set('host', 'localhost')
       .set('port', port)
       .set('env','development')
-      //.use(express.errorHandler({ dumpExceptions: true, showStack: true }))
+      .use(express.errorHandler({ dumpExceptions: true, showStack: true }))
   }); 
   
   app.configure('production', function (){
@@ -21,7 +28,7 @@ module.exports = function(app){
       .set('host', 'hrsite.com')
       .set('port', port)
       .set('env','production')
-      //.use(express.errorHandler())
+      .use(express.errorHandler())
   });
   
 }
