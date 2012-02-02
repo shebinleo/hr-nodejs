@@ -12,5 +12,6 @@ var mongoose = require('mongoose');
 module.exports = function(){
 
   //  Load models here
-
+  
+  mongoose.model('User', require('./models/user'));
 }

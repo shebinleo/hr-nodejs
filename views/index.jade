@@ -1,8 +1,50 @@
-div.hero-unit
-  h1 Welcome to Site Title
-  p Lorem ipsum dolar sit amet, cons incidunt ut labore et dolore magn trud exercitation ullamcorpor susc vel eum irure dolor in reprehende dolore eu fugiat nulla pariatur.
-  p
-    a(class='btn btn-primary btn-large') Learn more &raquo;
+div.row
+  div.span7
+    div.hero-unit
+      h1 Welcome to #{constants.SITE_TITLE}
+      p Lorem ipsum dolar sit amet, cons incidunt ut labore et dolore magn trud exercitation ullamcorpor susc vel eum irure dolor in reprehende dolore eu fugiat nulla pariatur.
+      p
+        a(class='btn btn-primary btn-large', href='/aboutus') Learn more &raquo;
+  div.span5
+    form(action='/login', method='POST', id='auth-form', class='well form-horizontal')
+      fieldset
+        legend Sign in
+        div.control-group
+          label(class='control-label', for='id_email') Email
+          div.controls
+            input(type='text', class='input-large', id='id_email', name='email')
+        div.control-group
+          label(class='control-label', for='id_password') Password
+          div.controls
+            input(type='password', class='input-large', id='id_password', name='password')
+        //- div.control-group
+          //- label(class='control-label', for='id_keep_me_signed_in') &nbsp;
+          //- div.controls
+            //- label.checkbox Keep me signed in
+              //- input(type='checkbox', id='id_keep_me_signed_in', name='keep_me_signed_in', value='')
+        div.form-login-actions
+          button(type='submit', class='btn btn-primary') Sign In
+          span.login-actions
+            a(href='#') Forgot password?
+          br
+          span.login-actions
+            a(href='/user/registration') Register Now
+        hr
+        div.connect-buttons
+          div.connect-button
+            a(class='btn', id='facebook_button', href='#')
+              span Sign in with 
+                strong Facebook
+          div.connect-button
+            a(class='btn', id='google_button', href='#')
+              span Sign in with 
+                strong Google
+          br
+          br
+          div.connect-button
+            a(class='btn', id='linkedin_button', href='#')
+              span Sign in with 
+                strong LinkedIn
 
 div.row
   div.span4

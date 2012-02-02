@@ -1,0 +1,87 @@
+h2 Registration
+form(class='form-horizontal', action='/user/registration', method='POST', id='company-registration-form', name='')
+  != messages()
+  input(type='hidden', name='_csrf', value=token)
+  fieldset
+    legend Company Information
+    div.control-group
+      label(class='control-label required', for='company_name') Company Name
+      div.controls
+        input(type='text', class='input-xlarge', id='company_name', name='company_name', value=values.company_name)
+        p.help-block Please enter the company name
+    div.control-group
+      label(class='control-label required', for='business_registration_no') Business Registration No.
+      div.controls
+        input(type='text', class='input-xlarge', id='business_registration_no', name='business_registration_no', value=values.business_registration_no)
+    div.control-group
+      label(class='control-label', for='description') About the Company
+      div.controls
+        textarea(rows='3', class='input-xlarge', id='description', name='description', value=values.description)
+
+    div.control-group
+      label(class='control-label', for='block_no') Company Address
+      div.controls
+        input(type='text', class='input-small', id='block_no', name='block_no', placeholder='Block No.', value=values.block_no)
+        &nbsp;&nbsp;&nbsp;
+        input(type='text', class='input-small', id='unit_no', name='unit_no', placeholder='Unit No.', value=values.unit_no)
+    div.control-group
+      label(class='control-label', for='building_name')
+      div.controls
+        input(type='text', class='input-xlarge', id='building_name', name='building_name', placeholder='Building Name', value=values.building_name)
+    div.control-group
+      label(class='control-label', for='road_name')
+      div.controls
+        input(type='text', class='input-xlarge', id='road_name', name='road_name', placeholder='Road Name', value=values.road_name)
+    div.control-group
+      label(class='control-label', for='postal_code')
+      div.controls
+        input(type='text', class='input-xlarge', id='postal_code', name='postal_code', placeholder='Postal Code', value=values.postal_code)
+
+    div.control-group
+      label(class='control-label', for='company_type') Company Type
+      div.controls
+        select(id='company_type', name='company_type')
+          - each item, key in company_types
+            option(value=key, selected=key==values.company_type) #{item}
+    div.control-group
+      label(class='control-label', for='industry') Industry
+      div.controls
+        select(id='industry', name='industry')
+          - each item, key in industries
+            option(value=key, selected=key==values.industry) #{item}
+    div.control-group
+      label(class='control-label', for='company_website') Company Website
+      div.controls
+        input(type='text', class='input-xlarge', id='company_website', name='company_website', value=values.company_website)
+
+
+    legend User account / Contact information
+    div.control-group
+      label(class='control-label', for='name_of_contact_person') Name of contact person
+      div.controls
+        input(type='text', class='input-xlarge', id='name_of_contact_person', name='name_of_contact_person', value=values.name_of_contact_person)
+    div.control-group
+      label(class='control-label', for='designation') Designation
+      div.controls
+        input(type='text', class='input-xlarge', id='designation', name='designation', value=values.designation)
+    div.control-group
+      label(class='control-label', for='office_number') Office Number
+      div.controls
+        input(type='text', class='input-xlarge', id='office_number', name='office_number', value=values.office_number)
+    div.control-group
+      label(class='control-label', for='mobile_number') Mobile Number
+      div.controls
+        input(type='text', class='input-xlarge', id='mobile_number', name='mobile_number', value=values.mobile_number)
+    div.control-group
+      label(class='control-label required', for='email') Email Address
+      div.controls
+        input(type='text', class='input-xlarge', id='email', name='email', value=values.email)
+    div.control-group
+      label(class='control-label required', for='confirm_email') Confirm Email Address
+      div.controls
+        input(type='text', class='input-xlarge', id='confirm_email', name='confirm_email', value=values.confirm_email)
+
+
+    div.form-actions
+      button(type='submit', class='btn btn-primary') Register
+      button(type='reset', class='btn') Reset

@@ -1,23 +1,4 @@
 /**
- * Index Home page
- *
- * @param {Request Object} req
- * @param {Response Object} res
- * @param {Databaes Object} db
- * @param {Callback} next
- *
- * @api public
- * @url /
- * @url /home
- */
-
-exports.index = function(req, res, db, next){
-  res.render('index', {
-    title: 'Home'
-  });
-}
-
-/**
  * About us page
  *
  * @param {Request Object} req
@@ -29,8 +10,8 @@ exports.index = function(req, res, db, next){
  * @url /aboutus
  */
 
-exports.aboutus = function(req, res, db, next){
-  res.render('aboutus', {
+exports.aboutus = function(req, res, next){
+  res.render('static/aboutus', {
     title: 'About Us'
   });
 }
@@ -47,8 +28,8 @@ exports.aboutus = function(req, res, db, next){
  * @url /contactus
  */
 
-exports.contactus = function(req, res, db, next){
-  res.render('contactus', {
+exports.contactus = function(req, res, next){
+  res.render('static/contactus', {
     title: 'Contact Us'
   });
 }
@@ -65,8 +46,8 @@ exports.contactus = function(req, res, db, next){
  * @url /services
  */
 
-exports.services = function(req, res, db, next){
-  res.render('services', {
+exports.services = function(req, res, next){
+  res.render('static/services', {
     title: 'Services'
   });
 }

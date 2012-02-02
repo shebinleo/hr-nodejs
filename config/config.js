@@ -4,10 +4,10 @@
 
 var express   = require('express')
     , mongoose  = require('mongoose')
-	, MongoStore = require('connect-mongo');
+    , constants  = require('../constants')
+	, MongoStore = require('connect-mongo')
+	, expressValidator = require('express-validator');
 	
-//Database name
-var DB_NAME = 'hr-dev';
 
 /**
  *  Exports
@@ -17,7 +17,7 @@ module.exports = function(app){
 
   //  Setup DB Connection
 
-  var dblink = process.env.MONGOHQ_URL || 'mongodb://127.0.0.1:27017/' + DB_NAME;
+  var dblink = process.env.MONGOHQ_URL || constants.DB_URL;
 
   var db  = mongoose.createConnection(dblink);
 
@@ -25,11 +25,19 @@ module.exports = function(app){
 
   app.configure(function (){
     this
-      .use(express.logger('\033[90m:method\033[0m \033[36m:url\033[0m \033[90m:response-time ms\033[0m'))
+      //.use(express.logger('\033[90m:method\033[0m \033[36m:url\033[0m \033[90m:response-time ms\033[0m'))
       .use(express.cookieParser())
-      .use(express.bodyParser())
-      .use(express.session({ secret: 'faFka1@$aGsja', store: new MongoStore({db: DB_NAME}) }))
+      .use(express.session({ 
+			secret: constants.COOKIE_SECRET
+			,cookie: { _expires: new Date(Date.now() + 3600000) } //1 Hour //need to confirm
+			,store: new MongoStore({
+				db: constants.DB_NAME
+			}) 
+		})) //Stores session in the database
+	  .use(express.bodyParser())
+	  .use(expressValidator)
       .use(express.methodOverride())
+	  .use(express.csrf()) //Cross-site request forgery protection
       //.use(app.router)
   });
 
@@ -50,6 +58,18 @@ module.exports = function(app){
     })
   });
    
+
+  // adding constants to the dynamic helper
+  app.dynamicHelpers({
+    constants: function(){
+	  return constants;
+	}
+	,token: function(req, res) { 
+      return req.session._csrf;
+	}
+	,messages: require('../lib/bootstrap-messages')
+	,
+  });
   
   return app;
 }

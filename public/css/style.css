@@ -1,5 +1,35 @@
 
 body {
-	padding-top: 60px;
-	padding-bottom: 40px;
+	padding-top:60px;
+	padding-bottom:40px;
 }
+
+.required:after { content: '*'; color: #D14; }
+#messages ul { padding-left: 30px; }
+
+/* Overriding bootstrap
+*/
+.form-actions button.btn {margin-right:5px;}
+.form-actions button.btn:last-child {margin-right:0px;}
+
+/* Login form
+*/
+form#auth-form{padding-bottom: 85px;}
+form#auth-form.form-horizontal .controls { margin-left: 80px; }
+form#auth-form.form-horizontal .control-group > label { width: 70px; }
+form#auth-form .form-login-actions {padding-left:80px;}
+.form-login-actions button {float:left;}
+.form-login-actions span.login-actions {padding-left:10px;}
+
+.connect-buttons {text-align: center;}
+.connect-buttons .connect-button {display: inline; margin-right:5px;}
+.connect-buttons .connect-button:last-child {margin-right:0px;}
+.connect-buttons #facebook_button span { padding: 5px 0 1px 26px; background:url('../img/icons-list.png?0f60e8bdab3c') 0px -301px no-repeat;}
+.connect-buttons #google_button span { /*padding: 5px 0 1px 26px; background:url('../img/icons-list.png?0f60e8bdab3c') 0px -301px no-repeat;*/}
+.connect-buttons #linkedin_button span { /*padding: 5px 0 1px 26px; background:url('../img/icons-list.png?0f60e8bdab3c') 0px -301px no-repeat;*/}
+
+/*Company registration
+*/
+form#company-registration-form.form-horizontal .controls { margin-left: 180px; }
+form#company-registration-form.form-horizontal .control-group > label { width: 160px; }
+form#company-registration-form.form-horizontal .form-actions { padding-left: 180px; }
